@@ -1,30 +1,7 @@
 package fr.dinasty.shell.command;
 
-public class Command {
-    private String id, description;
-    private String[] aliases;
-    private CommandExecutor executor;
+import fr.dinasty.shell.events.CommandReceivedEvent;
 
-    public Command(String id, String description, CommandExecutor executor, String[] aliases) {
-        this.id = id;
-        this.description = description;
-        this.aliases = aliases;
-        this.executor = executor;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String[] getAliases() {
-        return aliases;
-    }
-
-    public CommandExecutor getExecutor() {
-        return executor;
-    }
+public interface CommandExecutor {
+    void run(CommandReceivedEvent event, Command command, String[] args);
 }
